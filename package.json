@@ -1,0 +1,15 @@
+{
+  "name": "flexlite",
+  "author": "wythe",
+  "version": "1.0.0",
+  "description": "CSS轻量级Flexbox布局框架",
+  "scripts": {
+    "build": "lessc --autoprefix=\"> 5%, ff >= 20 , ie >= 8, iOS >= 6, Edge >= 12, Opera >= 15, Chrome >= 20, Safari >= 6, Android >= 4\" FlexLite.less > ./build/flexlite.css && lessc --clean-css=\"--s0 --advanced --compatibility=ie8\" ./build/flexlite.css > ./build/flexlite.min.css"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "less": "^2.7.1",
+    "less-plugin-clean-css": "^1.5.1",
+    "less-plugin-autoprefix": "^1.5.1"
+  }
+}
