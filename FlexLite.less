@@ -1,1 +1,247 @@
+@grid: 12;
+@root: fview;
+@node: fitem;
 
+* {
+    margin: 0;
+    padding: 0;
+}
+            
+html, body {
+    width: 100%;
+    height: 100%;
+}
+
+.@{root}_horz {
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    box-sizing: border-box;
+}
+
+.@{root}_vert {
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    box-sizing: border-box;
+}
+
+.@{root}_-horz {
+    display: flex;
+    flex-wrap: nowrap;
+    box-sizing: border-box;
+    flex-direction: row-reverse;
+}
+
+.@{root}_-vert {
+    display: flex;
+    flex-wrap: nowrap;
+    box-sizing: border-box;
+    flex-direction: column-reverse;
+}
+
+.@{root}_horz_warp {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    box-sizing: border-box;
+}
+
+.@{root}_vert_warp {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    box-sizing: border-box;
+}
+
+.@{root}_-horz_warp {
+    display: flex;
+    flex-wrap: wrap;
+    box-sizing: border-box;
+    flex-direction: row-reverse;
+}
+
+.@{root}_-vert_warp {
+    display: flex;
+    flex-wrap: wrap;
+    box-sizing: border-box;
+    flex-direction: column-reverse;
+}
+
+.@{root}_horz_-warp {
+    display: flex;
+    flex-wrap: wrap-reverse;
+    flex-direction: row;
+    box-sizing: border-box;
+}
+
+.@{root}_vert_-warp {
+    display: flex;
+    flex-wrap: wrap-reverse;
+    flex-direction: column;
+    box-sizing: border-box;
+}
+
+.@{root}_-horz_-warp {
+    display: flex;
+    flex-wrap: wrap-reverse;
+    box-sizing: border-box;
+    flex-direction: row-reverse;
+}
+
+.@{root}_-vert_-warp {
+    display: flex;
+    flex-wrap: wrap-reverse;
+    box-sizing: border-box;
+    flex-direction: column-reverse;
+}
+
+.@{root}_align_end {
+    justify-content: flex-end;
+}
+
+.@{root}_align_start {
+    justify-content: flex-start;
+}
+
+.@{root}_align_center {
+    justify-content: center;
+}
+
+.@{root}_align_around {
+    justify-content: space-around;
+}
+
+.@{root}_align_between {
+    justify-content: space-between;
+}
+
+.@{root}_align_cross_end {
+    align-items: flex-end;
+}
+
+.@{root}_align_cross_start {
+    align-items: flex-start;
+}
+
+.@{root}_align_cross_center {
+    align-items: center;
+}
+
+.@{root}_align_cross_stretch {
+    align-items: stretch;
+}
+
+.@{root}_align_cross_baseline {
+    align-items: baseline;
+}
+
+.@{root}_align_break_end {
+    align-content: flex-end;
+}
+
+.@{root}_align_break_start {
+    align-content: flex-start;
+}
+
+.@{root}_align_break_center {
+    align-content: center;
+}
+
+.@{root}_align_break_around {
+    align-content: space-around;
+}
+
+.@{root}_align_break_between {
+    align-content: space-between;
+}
+
+.@{root}_align_break_stretch {
+    align-content: stretch;
+}
+
+.@{node}_align_end {
+    align-self: flex-end;
+}
+
+.@{node}_align_start {
+    align-self: flex-start;
+}
+
+.@{node}_align_center {
+    align-self: center;
+}
+
+.@{node}_align_stretch {
+    align-self: stretch;
+}
+
+.@{node}_align_baseline {
+    align-self: baseline;
+}
+
+.@{node}_basis_min {
+    flex-basis: min-content;
+}
+
+.@{node}_basis_max {
+    flex-basis: max-content;
+}
+
+.@{node}_basis_fit {
+    flex-basis: fit-content;
+}
+
+.@{node}_basis_base {
+    flex-basis: content;
+}
+
+.@{node}_basis_fill {
+    flex-basis: fill;
+}
+
+.@{node}_basis_auto {
+    flex-basis: auto;
+}
+
+.@{node}_basis_none {
+    flex-basis: 0;
+}
+
+.make_flex_span(@n, @i: 1) when (@i =< @n) {
+    .@{node}_span_@{i} {
+        width: percentage(round(@i / @n, 5));
+        box-sizing: border-box;
+        flex-basis: percentage(round(@i / @n, 5));
+    }
+    .make_flex_span(@n, (@i + 1));
+}
+
+.make_flex_span(@grid);
+
+.make_flex_sort(@n, @i: 0) when (@i =< @n) {
+    .@{node}_sort_@{i} {
+        order: @i;
+    }
+    .make_flex_sort(@n, (@i + 1));
+}
+
+.make_flex_sort(@grid);
+
+.make_flex_grow(@n, @i: 0) when (@i =< @n) {
+    .@{node}_grow_@{i} {
+        flex-grow: @i;
+    }
+    .make_flex_grow(@n, (@i + 1));
+}
+
+.make_flex_grow(@grid);
+
+.make_flex_shrink(@n, @i: 0) when (@i =< @n) {
+    .@{node}_shrink_@{i} {
+        flex-shrink: @i;
+    }
+    .make_flex_shrink(@n, (@i + 1));
+}
+
+.make_flex_shrink(@grid);
