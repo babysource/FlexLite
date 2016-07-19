@@ -1,11 +1,11 @@
 ﻿# FlexLite
 
-纯CSS轻量级Flexbox布局框架, 支持十二栅格布局，多浏览器兼容，Class样式分为两类：
+纯CSS轻量级Flexbox布局框架，支持十二栅格布局，多浏览器兼容，Class样式分为两类：
 
 1. ````fview_```` 前缀： 父容器相关样式
 2. ````fitem_```` 前缀： 子元素相关样式
 
-# fview 样式
+# fview 容器样式
 
 ## 1.布局方式
 
@@ -55,7 +55,7 @@
 	fview_align_break_between	# 等同于align-content: space-between;
 	fview_align_break_stretch	# 等同于align-content: stretch;
 
-# fitem 样式
+# fitem 元素样式
 
 ## 1.对齐方式
 
